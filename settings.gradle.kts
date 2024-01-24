@@ -19,3 +19,15 @@ dependencyResolutionManagement {
 }
 
 include(":composeApp")
+include(":common:auth:api")
+include(":common:auth:compose")
+include(":common:auth:data")
+include(":common:auth:domain")
+include(":common:auth:presentation")
+include(":common:core")
+include(":common:umbrella")
+include(":common:splash:compose")
+include(":common:onboarding:compose")
+include(":common:onboarding:presentation")
+include(":common:discover:compose")
+include(":common:discover:presentation")
