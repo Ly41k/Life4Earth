@@ -23,56 +23,30 @@ kotlin {
     iosSimulatorArm64()
 
     sourceSets {
-        val desktopMain by getting
-
         commonMain.dependencies {
-            implementation(compose.runtime)
             implementation(compose.foundation)
-            implementation(compose.material3)
+            implementation(compose.material)
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
-            api(libs.coroutines.core)
-            api(libs.kodein)
+            implementation(projects.common.core)
 
-            api(libs.ktor.core)
-            implementation(libs.ktor.json)
-            implementation(libs.ktor.serialization)
-            implementation(libs.ktor.negotiation)
-            implementation(libs.ktor.kotlinx.json)
-            implementation(libs.ktor.logging)
-
-            implementation(libs.kviewmodel.core)
-        }
-
-        androidMain.dependencies {
-            implementation(libs.androidx.core)
-            implementation(libs.ktor.android)
-        }
-
-        iosMain.dependencies {
-            implementation(libs.ktor.ios)
-        }
-
-        desktopMain.dependencies {
-            implementation(libs.ktor.okhttp)
+            implementation(libs.odyssey.core)
+            implementation(libs.odyssey.compose)
         }
     }
 }
 
 android {
-    namespace = "com.life4earth.app.core"
+    namespace = "com.life4earth.app.splash.compose"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-    }
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
     kotlin {
         jvmToolchain {
             languageVersion.set(JavaLanguageVersion.of(JavaVersion.VERSION_17.toString()))
