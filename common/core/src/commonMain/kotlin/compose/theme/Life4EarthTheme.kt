@@ -4,13 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.staticCompositionLocalOf
 
 object Life4EarthTheme {
-    internal val colors: Life4EarthColors
+    val colors: Life4EarthColors
         @Composable
-        internal get() = LocalLife4EarthColors.current
+        get() = LocalLife4EarthColors.current
 
-    internal val typography: Life4EarthTypography
+    val typography: Life4EarthTypography
         @Composable
-        internal get() = LocalLife4EarthTypography.current
+        get() = LocalLife4EarthTypography.current
 
 }
 

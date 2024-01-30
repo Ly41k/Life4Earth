@@ -26,6 +26,7 @@ kotlin {
 
             implementation(projects.common.core)
             implementation(projects.common.splash.compose)
+            implementation(projects.common.auth.compose)
 
             implementation(libs.odyssey.core)
             implementation(libs.odyssey.compose)
