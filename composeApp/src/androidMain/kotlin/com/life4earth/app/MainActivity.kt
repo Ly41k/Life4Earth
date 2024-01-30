@@ -1,14 +1,23 @@
 package com.life4earth.app
 
-import App
+import MainView
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
+import di.PlatformConfiguration
+import di.PlatformSDK
 
-
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { App() }
+        PlatformSDK.init(
+            PlatformConfiguration(
+                activityContext = applicationContext,
+                // TODO Need to use shared Resources
+                appName = "Life4Earth"
+            )
+        )
+
+        setContent { MainView(this) }
     }
 }
