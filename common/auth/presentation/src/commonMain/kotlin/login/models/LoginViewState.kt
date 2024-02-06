@@ -1,4 +1,8 @@
 package login.models
 
-class LoginViewState {
-}
+data class LoginViewState(
+    val email: String = "",
+    val password: String = "",
+    val isSending: Boolean = false,
+    val isPasswordShow: Boolean = false
+)
