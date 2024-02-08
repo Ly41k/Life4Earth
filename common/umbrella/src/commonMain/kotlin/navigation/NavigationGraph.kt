@@ -8,4 +8,5 @@ import utils.NavigationTree
 fun RootComposeBuilder.navigationGraph() {
     screen(NavigationTree.Splash.SplashScreen.name) { SplashScreen() }
     authFlow()
+    mainFlow()
 }

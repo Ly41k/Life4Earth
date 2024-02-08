@@ -79,9 +79,7 @@ fun LoginView(
                 modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
                 text = state.email,
                 hint = AuthComposeResStrings.email,
-                onValueChanged = {
-                    eventHandler.invoke(LoginEvent.EmailChanged(it))
-                }
+                onValueChanged = { eventHandler.invoke(LoginEvent.EmailChanged(it)) }
             )
         }
 
@@ -93,9 +91,7 @@ fun LoginView(
                 isSecure = !state.isPasswordShow,
                 trailingIcon = {
                     Icon(
-                        modifier = Modifier.clickable {
-                            eventHandler.invoke(LoginEvent.PasswordShowClick)
-                        },
+                        modifier = Modifier.clickable { eventHandler.invoke(LoginEvent.PasswordShowClick) },
                         imageVector = if (state.isPasswordShow) {
                             Icons.Outlined.Clear
                         } else {
@@ -105,9 +101,7 @@ fun LoginView(
                         tint = Life4EarthTheme.colors.secondaryText
                     )
                 },
-                onValueChanged = {
-                    eventHandler.invoke(LoginEvent.PasswordChanged(it))
-                }
+                onValueChanged = { eventHandler.invoke(LoginEvent.PasswordChanged(it)) }
             )
         }
 
@@ -128,8 +122,7 @@ fun LoginView(
             CommonActionButton(
                 text = AuthComposeResStrings.login,
                 enabled = true,
-                onClick = {}
-
+                onClick = { eventHandler.invoke(LoginEvent.LoginClick) }
             )
         }
 
@@ -139,28 +132,22 @@ fun LoginView(
                 text = AuthComposeResStrings.or,
                 color = Life4EarthTheme.colors.primaryText,
                 style = Life4EarthTheme.typography.smallHeading,
-                textAlign = TextAlign.Center,
-
-                )
+                textAlign = TextAlign.Center
+            )
         }
 
         item {
-
             Box(
                 modifier = Modifier
                     .wrapContentSize().height(48.dp)
                     .clip(RoundedCornerShape(8.dp))
                     .background(Life4EarthTheme.colors.googleButtonBackground)
-                    .clickable {
-
-                    }
-
+                    .clickable {}
             ) {
                 Row(
                     horizontalArrangement = Arrangement.Center,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-
                     Box(
                         modifier = Modifier
                             .aspectRatio(1f, true).padding(2.dp).clip(RoundedCornerShape(6.dp))
@@ -169,7 +156,6 @@ fun LoginView(
                     ) {
                         Image(painterResource(IC_GOOGLE_SVG), contentDescription = AuthComposeResStrings.sign_in_google)
                     }
-
                     Text(
                         modifier = Modifier.wrapContentSize().padding(horizontal = 10.dp),
                         text = AuthComposeResStrings.sign_in_google,

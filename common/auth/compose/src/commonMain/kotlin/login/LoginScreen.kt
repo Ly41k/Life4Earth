@@ -4,8 +4,10 @@ import androidx.compose.runtime.Composable
 import com.adeo.kviewmodel.compose.observeAsState
 import com.adeo.kviewmodel.odyssey.StoredViewModel
 import login.models.LoginAction
+import ru.alexgladkov.odyssey.compose.extensions.present
 import ru.alexgladkov.odyssey.compose.extensions.push
 import ru.alexgladkov.odyssey.compose.local.LocalRootController
+import ru.alexgladkov.odyssey.core.LaunchFlag
 import utils.NavigationTree
 
 @Composable
@@ -20,7 +22,13 @@ fun LoginScreen() {
         LoginView(state = state) { viewModel.obtainEvent(it) }
 
         when (action) {
-            is LoginAction.OpenMainFlow -> {}
+            is LoginAction.OpenMainFlow -> {
+                rootController.findRootController().present(
+                    screen = NavigationTree.Main.Dashboard.name,
+                    launchFlag = LaunchFlag.SingleNewTask
+                )
+            }
+
             is LoginAction.OpenRegistrationScreen -> rootController.push(NavigationTree.Auth.Register.name)
             is LoginAction.OpenForgotPasswordScreen -> rootController.push(NavigationTree.Auth.Forgot.name)
             null -> {}
