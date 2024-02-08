@@ -1,8 +1,10 @@
 package di
 
+import com.life4earth.app.core.CoreRes
+
 actual class PlatformConfiguration {
-    // TODO Need to use shared resources
-    actual val appName = "Life4Earth"
+    actual val appName: String
+        get() = CoreRes.string.app_name
 
     val appDataPath = when {
         System.getProperty("os.name")

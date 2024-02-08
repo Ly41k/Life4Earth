@@ -5,6 +5,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Window
 import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
+import com.life4earth.app.core.CoreRes
 import compose.theme.AppTheme
 import compose.theme.Life4EarthTheme
 import di.LocalPlatform
@@ -18,8 +19,7 @@ import ru.alexgladkov.odyssey.compose.setup.setNavigationContent
 fun main() = application {
     Window(
         onCloseRequest = ::exitApplication,
-        // TODO Need to use shared resources
-        title = "Life4Earth",
+        title = CoreRes.string.app_name,
         state = WindowState(size = DpSize(800.dp, 800.dp))
     ) {
         MainView()

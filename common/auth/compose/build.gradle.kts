@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.libres)
 }
 
 kotlin {
@@ -43,6 +44,12 @@ kotlin {
             implementation(libs.odyssey.compose)
         }
     }
+}
+
+libres {
+    generatedClassName = "AuthComposeRes"
+    generateNamedArguments = true
+    baseLocaleLanguageCode = "en"
 }
 
 android {
