@@ -9,6 +9,7 @@ class LoginViewModel : CoreSharedViewModel<LoginViewState, LoginAction, LoginEve
     initialState = LoginViewState()
 ) {
     override fun obtainEvent(viewEvent: LoginEvent) {
+        println("${this::class.simpleName} viewEvent: $viewEvent")
         when (viewEvent) {
             is LoginEvent.EmailChanged -> obtainEmailChanged(viewEvent.value)
             LoginEvent.ForgotClick -> openForgotScreen()
@@ -20,7 +21,7 @@ class LoginViewModel : CoreSharedViewModel<LoginViewState, LoginAction, LoginEve
     }
 
     private fun sendLogin() {
-
+        viewSingleAction = LoginAction.OpenMainFlow
     }
 
     private fun changePasswordVisibility() {
@@ -28,11 +29,11 @@ class LoginViewModel : CoreSharedViewModel<LoginViewState, LoginAction, LoginEve
     }
 
     private fun openForgotScreen() {
-        viewAction = LoginAction.OpenForgotPasswordScreen
+        viewSingleAction = LoginAction.OpenForgotPasswordScreen
     }
 
     private fun openRegistrationScreen() {
-        viewAction = LoginAction.OpenRegistrationScreen
+        viewSingleAction = LoginAction.OpenRegistrationScreen
     }
 
     private fun obtainEmailChanged(value: String) {

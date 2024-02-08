@@ -14,4 +14,7 @@ object NavigationTree {
         AuthFlow, Login, Register, Forgot
     }
 
+    enum class Main {
+        Dashboard, Discover, Community, Messages, Favorite, More
+    }
 }

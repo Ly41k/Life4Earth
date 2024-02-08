@@ -1,3 +1,5 @@
+import org.jetbrains.compose.ExperimentalComposeLibrary
+
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
@@ -23,11 +25,13 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
+            implementation(compose.foundation)
+            implementation(compose.material)
+            implementation(compose.ui)
+            @OptIn(ExperimentalComposeLibrary::class)
+            implementation(compose.components.resources)
 
             implementation(projects.common.core)
-            implementation(projects.common.splash.compose)
-            implementation(projects.common.auth.compose)
-            implementation(projects.common.main.compose)
 
             implementation(libs.odyssey.core)
             implementation(libs.odyssey.compose)
@@ -36,7 +40,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.life4earth.app.umbrella"
+    namespace = "com.life4earth.app.main.compose"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {

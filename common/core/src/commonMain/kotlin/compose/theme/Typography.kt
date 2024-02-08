@@ -35,5 +35,9 @@ val typography = Life4EarthTypography(
         fontWeight = FontWeight.Normal,
         fontSize = 12.sp,
         lineHeight = 22.sp
+    ),
+    bottomNavBar = TextStyle(
+        fontWeight = FontWeight.Normal,
+        fontSize = 10.sp,
     )
 )
