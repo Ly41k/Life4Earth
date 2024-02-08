@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.libres)
 }
 
 kotlin {
@@ -35,6 +36,7 @@ kotlin {
 
             api(libs.coroutines.core)
             api(libs.kodein)
+            api(libs.libres.compose)
 
             api(libs.ktor.core)
             implementation(libs.ktor.json)
@@ -59,6 +61,12 @@ kotlin {
             implementation(libs.ktor.okhttp)
         }
     }
+}
+
+libres {
+    generatedClassName = "CoreRes"
+    generateNamedArguments = true
+    baseLocaleLanguageCode = "en"
 }
 
 android {

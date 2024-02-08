@@ -10,14 +10,7 @@ import di.PlatformSDK
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        PlatformSDK.init(
-            PlatformConfiguration(
-                activityContext = applicationContext,
-                // TODO Need to use shared Resources
-                appName = "Life4Earth"
-            )
-        )
-
+        PlatformSDK.init(PlatformConfiguration(activityContext = applicationContext))
         setContent { MainView(this) }
     }
 }

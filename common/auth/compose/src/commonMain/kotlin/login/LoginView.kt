@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
@@ -19,7 +18,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.outlined.Clear
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.runtime.Composable
@@ -29,12 +27,17 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.life4earth.app.auth.compose.strings.AuthComposeResStrings
 import compose.theme.Life4EarthTheme
 import compose.widgets.CommonActionButton
 import compose.widgets.CommonOutlinedTextField
 import login.models.LoginEvent
 import login.models.LoginViewState
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.painterResource
+import utils.ImageRes.IC_GOOGLE_SVG
 
+@OptIn(ExperimentalResourceApi::class)
 @Composable
 fun LoginView(
     state: LoginViewState,
@@ -53,7 +56,7 @@ fun LoginView(
                     .fillMaxWidth()
                     .padding(bottom = 24.dp),
                 textAlign = TextAlign.Center,
-                text = "Discover Now", // TODO Need to use shared recourses
+                text = AuthComposeResStrings.discover_now,
                 style = Life4EarthTheme.typography.mediumHeading,
                 color = Life4EarthTheme.colors.primaryText
             )
@@ -64,7 +67,7 @@ fun LoginView(
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 16.dp),
-                text = "\"We cannot solve our problems with the same thinking we used when we created them.\"", // TODO Need to use shared recourses
+                text = AuthComposeResStrings.discover_now_description,
                 style = Life4EarthTheme.typography.smallHeading,
                 textAlign = TextAlign.Center,
                 color = Life4EarthTheme.colors.secondaryText
@@ -75,7 +78,7 @@ fun LoginView(
             CommonOutlinedTextField(
                 modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
                 text = state.email,
-                hint = "Email", // TODO Need to use shared recourses
+                hint = AuthComposeResStrings.email,
                 onValueChanged = {
                     eventHandler.invoke(LoginEvent.EmailChanged(it))
                 }
@@ -86,7 +89,7 @@ fun LoginView(
             CommonOutlinedTextField(
                 modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
                 text = state.password,
-                hint = "Password", // TODO Need to use shared recourses
+                hint = AuthComposeResStrings.password,
                 isSecure = !state.isPasswordShow,
                 trailingIcon = {
                     Icon(
@@ -98,7 +101,7 @@ fun LoginView(
                         } else {
                             Icons.Outlined.Lock
                         },
-                        contentDescription = "Password hidden", // TODO Need to use shared recourses
+                        contentDescription = AuthComposeResStrings.password_hidden,
                         tint = Life4EarthTheme.colors.secondaryText
                     )
                 },
@@ -114,7 +117,7 @@ fun LoginView(
                 Spacer(modifier = Modifier.weight(1f))
                 Text(
                     modifier = Modifier.clickable { eventHandler.invoke(LoginEvent.ForgotClick) },
-                    text = "Forgot password?", // TODO Need to use shared recourses
+                    text = AuthComposeResStrings.forgot_password,
                     color = Life4EarthTheme.colors.secondaryText,
                     style = Life4EarthTheme.typography.text
                 )
@@ -123,7 +126,7 @@ fun LoginView(
 
         item {
             CommonActionButton(
-                text = "Login", // TODO Need to use shared recourses
+                text = AuthComposeResStrings.login,
                 enabled = true,
                 onClick = {}
 
@@ -133,7 +136,7 @@ fun LoginView(
         item {
             Text(
                 modifier = Modifier.fillMaxWidth().padding(vertical = 20.dp),
-                text = "OR", // TODO Need to use shared recourses
+                text = AuthComposeResStrings.or,
                 color = Life4EarthTheme.colors.primaryText,
                 style = Life4EarthTheme.typography.smallHeading,
                 textAlign = TextAlign.Center,
@@ -164,12 +167,12 @@ fun LoginView(
                             .background(Color.White),
                         contentAlignment = Alignment.Center
                     ) {
-                        Image(imageVector = Icons.Default.Settings, contentDescription = null)
+                        Image(painterResource(IC_GOOGLE_SVG), contentDescription = AuthComposeResStrings.sign_in_google)
                     }
 
                     Text(
                         modifier = Modifier.wrapContentSize().padding(horizontal = 10.dp),
-                        text = "Sign in with Google", // TODO Need to use shared recourses
+                        text = AuthComposeResStrings.sign_in_google,
                         color = Life4EarthTheme.colors.primaryText,
                         style = Life4EarthTheme.typography.smallHeading
                     )
@@ -184,7 +187,7 @@ fun LoginView(
             ) {
                 Text(
                     modifier = Modifier.padding(end = 2.dp),
-                    text = "Not a member?", // TODO Need to use shared recourses
+                    text = AuthComposeResStrings.not_member,
                     style = Life4EarthTheme.typography.smallHeading,
                     color = Life4EarthTheme.colors.primaryText
                 )
@@ -193,7 +196,7 @@ fun LoginView(
                     modifier = Modifier
                         .padding(start = 2.dp)
                         .clickable { eventHandler.invoke(LoginEvent.RegistrationClick) },
-                    text = "Sign up now", // TODO Need to use shared recourses
+                    text = AuthComposeResStrings.sign_up,
                     style = Life4EarthTheme.typography.smallHeading,
                     color = Life4EarthTheme.colors.primaryAction
                 )
