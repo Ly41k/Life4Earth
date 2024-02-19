@@ -1,5 +1,6 @@
 package navigation
 
+import MessagesScreen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -63,20 +64,7 @@ fun RootComposeBuilder.mainFlow() {
         }
 
         tab(MessagesTab()) {
-            screen(name = NavigationTree.Main.Messages.name) {
-                Column(
-                    modifier = Modifier.fillMaxSize().background(Color.Red),
-                    verticalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                        text = "MessagesTab",
-                        color = Life4EarthTheme.colors.primaryText,
-                        style = Life4EarthTheme.typography.mediumHeading
-                    )
-                }
-            }
+            screen(name = NavigationTree.Main.Messages.name) { MessagesScreen() }
         }
 
         tab(FavoriteTab()) {

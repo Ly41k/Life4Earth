@@ -1,9 +1,6 @@
-import org.jetbrains.compose.ExperimentalComposeLibrary
-
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
-    alias(libs.plugins.jetbrainsCompose)
 }
 
 kotlin {
@@ -24,24 +21,15 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
-            implementation(compose.ui)
-            @OptIn(ExperimentalComposeLibrary::class)
-            implementation(compose.components.resources)
-
             implementation(projects.common.core)
-
-            implementation(libs.odyssey.core)
-            implementation(libs.odyssey.compose)
-            implementation(projects.common.messages.compose)
+            implementation(projects.common.auth.domain)
+            implementation(libs.kviewmodel.core)
         }
     }
 }
 
 android {
-    namespace = "com.life4earth.app.main.compose"
+    namespace = "com.life4earth.app.messages.presentation"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {
