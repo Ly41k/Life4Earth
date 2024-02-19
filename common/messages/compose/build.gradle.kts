@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.libres)
 }
 
 kotlin {
@@ -32,16 +33,26 @@ kotlin {
             implementation(compose.components.resources)
 
             implementation(projects.common.core)
+            implementation(projects.common.messages.presentation)
+
+            implementation(libs.kviewmodel.core)
+            implementation(libs.kviewmodel.compose)
+            implementation(libs.kviewmodel.odyssey)
 
             implementation(libs.odyssey.core)
             implementation(libs.odyssey.compose)
-            implementation(projects.common.messages.compose)
         }
     }
 }
 
+libres {
+    generatedClassName = "MessagesComposeRes"
+    generateNamedArguments = true
+    baseLocaleLanguageCode = "en"
+}
+
 android {
-    namespace = "com.life4earth.app.main.compose"
+    namespace = "com.life4earth.app.messages.compose"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {
