@@ -23,6 +23,8 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
+            implementation(compose.animation)
+            implementation(compose.foundation)
 
             implementation(projects.common.core)
             implementation(projects.common.splash.compose)
@@ -30,8 +32,10 @@ kotlin {
             implementation(projects.common.main.compose)
             implementation(projects.common.messages.compose)
 
-            implementation(libs.odyssey.core)
-            implementation(libs.odyssey.compose)
+            api(libs.precompose)
+            api(libs.precompose.koin)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
         }
     }
 }

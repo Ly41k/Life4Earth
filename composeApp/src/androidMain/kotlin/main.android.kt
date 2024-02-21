@@ -2,29 +2,26 @@ import androidx.activity.ComponentActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import compose.theme.AppTheme
-import compose.theme.Life4EarthTheme
 import di.LocalPlatform
 import di.Platform
-import navigation.navigationGraph
-import ru.alexgladkov.odyssey.compose.setup.OdysseyConfiguration
-import ru.alexgladkov.odyssey.compose.setup.setNavigationContent
+import di.PlatformConfiguration
+import di.appModule
+import moe.tlaster.precompose.PreComposeApp
+import navigation.AppNavGraph
+import org.koin.compose.KoinApplication
 
 @Composable
 fun MainView(activity: ComponentActivity) {
-
-    AppTheme {
-        val odysseyConfiguration = OdysseyConfiguration(
-            canvas = activity,
-            backgroundColor = Life4EarthTheme.colors.primaryBackground
-        )
-
-        CompositionLocalProvider(
-            LocalPlatform provides Platform.Android,
-        ) {
-            setNavigationContent(odysseyConfiguration, onApplicationFinish = {
-                activity.finishAffinity()
-            }) {
-                navigationGraph()
+    KoinApplication(application = {
+        modules(appModule(configuration = PlatformConfiguration(activity)))
+    }) {
+        PreComposeApp {
+            AppTheme {
+                CompositionLocalProvider(
+                    LocalPlatform provides Platform.Android
+                ) {
+                    AppNavGraph()
+                }
             }
         }
     }

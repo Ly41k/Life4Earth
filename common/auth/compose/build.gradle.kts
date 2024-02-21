@@ -27,6 +27,7 @@ kotlin {
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
+            implementation(compose.animation)
             implementation(compose.material)
             implementation(compose.ui)
             @OptIn(ExperimentalComposeLibrary::class)
@@ -36,12 +37,7 @@ kotlin {
             implementation(projects.common.auth.presentation)
             implementation(projects.common.auth.domain)
 
-            implementation(libs.kviewmodel.core)
-            implementation(libs.kviewmodel.compose)
-            implementation(libs.kviewmodel.odyssey)
-
-            implementation(libs.odyssey.core)
-            implementation(libs.odyssey.compose)
+            api(libs.precompose)
         }
     }
 }
