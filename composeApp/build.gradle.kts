@@ -41,14 +41,17 @@ kotlin {
             implementation(compose.foundation)
             implementation(compose.material)
             implementation(compose.ui)
+            implementation(compose.animation)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
             implementation(projects.common.core)
             implementation(projects.common.umbrella)
 
-            implementation(libs.odyssey.core)
-            implementation(libs.odyssey.compose)
+            api(libs.precompose)
+            api(libs.precompose.koin)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
 
         }
         desktopMain.dependencies {

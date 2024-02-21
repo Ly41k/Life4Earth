@@ -7,14 +7,13 @@ import androidx.compose.ui.window.WindowState
 import androidx.compose.ui.window.application
 import com.life4earth.app.core.CoreRes
 import compose.theme.AppTheme
-import compose.theme.Life4EarthTheme
 import di.LocalPlatform
 import di.Platform
 import di.PlatformConfiguration
-import di.PlatformSDK
-import navigation.navigationGraph
-import ru.alexgladkov.odyssey.compose.setup.OdysseyConfiguration
-import ru.alexgladkov.odyssey.compose.setup.setNavigationContent
+import di.appModule
+import moe.tlaster.precompose.PreComposeApp
+import navigation.AppNavGraph
+import org.koin.compose.KoinApplication
 
 fun main() = application {
     Window(
@@ -28,17 +27,17 @@ fun main() = application {
 
 @Composable
 fun MainView() {
-    PlatformSDK.init(PlatformConfiguration())
-
-    AppTheme {
-        val odysseyConfiguration = OdysseyConfiguration(
-            backgroundColor = Life4EarthTheme.colors.primaryBackground
-        )
-
-        CompositionLocalProvider(
-            LocalPlatform provides Platform.Desktop,
-        ) {
-            setNavigationContent(odysseyConfiguration) { navigationGraph() }
+    KoinApplication(application = {
+        modules(appModule(configuration = PlatformConfiguration()))
+    }) {
+        PreComposeApp {
+            AppTheme {
+                CompositionLocalProvider(
+                    LocalPlatform provides Platform.Desktop
+                ) {
+                    AppNavGraph()
+                }
+            }
         }
     }
 }
