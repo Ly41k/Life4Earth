@@ -29,6 +29,7 @@ kotlin {
             implementation(projects.common.core)
             implementation(projects.common.splash.compose)
             implementation(projects.common.auth.compose)
+            implementation(projects.common.auth.presentation)
             implementation(projects.common.main.compose)
             implementation(projects.common.messages.compose)
 

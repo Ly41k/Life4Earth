@@ -2,26 +2,32 @@ package login
 
 import login.models.LoginAction
 import login.models.LoginEvent
+import login.models.LoginEvent.EmailChanged
+import login.models.LoginEvent.ForgotClick
+import login.models.LoginEvent.LoginClick
+import login.models.LoginEvent.PasswordChanged
+import login.models.LoginEvent.PasswordShowClick
+import login.models.LoginEvent.RegistrationClick
 import login.models.LoginViewState
-import presentation.CoreSharedViewModel
+import presentation.BaseViewModel
 
-class LoginViewModel : CoreSharedViewModel<LoginViewState, LoginAction, LoginEvent>(
+class LoginViewModel : BaseViewModel<LoginViewState, LoginAction, LoginEvent>(
     initialState = LoginViewState()
 ) {
     override fun obtainEvent(viewEvent: LoginEvent) {
         println("${this::class.simpleName} viewEvent: $viewEvent")
         when (viewEvent) {
-            is LoginEvent.EmailChanged -> obtainEmailChanged(viewEvent.value)
-            LoginEvent.ForgotClick -> openForgotScreen()
-            LoginEvent.LoginClick -> sendLogin()
-            is LoginEvent.PasswordChanged -> obtainPasswordChanged(viewEvent.value)
-            LoginEvent.PasswordShowClick -> changePasswordVisibility()
-            LoginEvent.RegistrationClick -> openRegistrationScreen()
+            is EmailChanged -> obtainEmailChanged(viewEvent.value)
+            ForgotClick -> openForgotScreen()
+            LoginClick -> sendLogin()
+            is PasswordChanged -> obtainPasswordChanged(viewEvent.value)
+            PasswordShowClick -> changePasswordVisibility()
+            RegistrationClick -> openRegistrationScreen()
         }
     }
 
     private fun sendLogin() {
-        viewSingleAction = LoginAction.OpenMainFlow
+        viewAction = LoginAction.OpenMainFlow
     }
 
     private fun changePasswordVisibility() {
@@ -29,11 +35,11 @@ class LoginViewModel : CoreSharedViewModel<LoginViewState, LoginAction, LoginEve
     }
 
     private fun openForgotScreen() {
-        viewSingleAction = LoginAction.OpenForgotPasswordScreen
+        viewAction = LoginAction.OpenForgotPasswordScreen
     }
 
     private fun openRegistrationScreen() {
-        viewSingleAction = LoginAction.OpenRegistrationScreen
+        viewAction = LoginAction.OpenRegistrationScreen
     }
 
     private fun obtainEmailChanged(value: String) {

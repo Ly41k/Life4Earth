@@ -38,6 +38,7 @@ kotlin {
             implementation(projects.common.auth.domain)
 
             api(libs.precompose)
+            implementation(libs.koin.compose)
         }
     }
 }
