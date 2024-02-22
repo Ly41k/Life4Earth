@@ -25,12 +25,12 @@ fun AppNavGraph() {
                 )
             }
             scene(route = AppNavigation.Auth.route) {
-//                AuthNav(
-//                    navigateToMain = {
-//                        navigator.popBackStack()
-//                        navigator.navigate(AppNavigation.Main.route)
-//                    }
-//                )
+                AuthNavGraph(
+                    navigateToMain = {
+                        navigator.popBackStack()
+                        navigator.navigate(AppNavigation.Main.route)
+                    }
+                )
             }
 
             scene(route = AppNavigation.Main.route) {

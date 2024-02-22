@@ -36,6 +36,7 @@ kotlin {
 
             api(libs.coroutines.core)
             api(libs.kodein)
+            api(libs.koin.core)
             api(libs.libres.compose)
 
             api(libs.ktor.core)
@@ -44,6 +45,8 @@ kotlin {
             implementation(libs.ktor.negotiation)
             implementation(libs.ktor.kotlinx.json)
             implementation(libs.ktor.logging)
+
+            api(libs.precompose.viewmodel)
 
             implementation(libs.kviewmodel.core)
         }
