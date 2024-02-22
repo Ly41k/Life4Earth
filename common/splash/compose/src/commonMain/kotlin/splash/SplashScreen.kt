@@ -1,51 +1,66 @@
 package splash
 
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.RepeatMode
+import androidx.compose.animation.core.animateFloat
+import androidx.compose.animation.core.infiniteRepeatable
+import androidx.compose.animation.core.rememberInfiniteTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import androidx.compose.ui.draw.rotate
+import compose.theme.Life4EarthTheme
+import kotlinx.coroutines.delay
+import org.jetbrains.compose.resources.ExperimentalResourceApi
+import org.jetbrains.compose.resources.painterResource
+import utils.ImageRes
 
 @Composable
-fun SplashScreen(
-    navigateToAuth: () -> Unit
-) {
-//    LaunchedEffect(Unit) {
-//        delay(1000L)
-//        navigationToAuth.invoke()
-//    }
+fun SplashScreen(navigateToAuth: () -> Unit) {
+    LaunchedEffect(Unit) {
+        delay(2000L)
+        navigateToAuth.invoke()
+    }
 
     Column(
-        modifier = Modifier.fillMaxSize().background(Color.LightGray),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Life4EarthTheme.colors.primaryBackground)
+    ) {
+        AnimationLife4EarthLogo()
+    }
+}
+
+@OptIn(ExperimentalResourceApi::class)
+@Composable
+fun AnimationLife4EarthLogo() {
+    val infiniteTransition = rememberInfiniteTransition()
+    val angle by infiniteTransition.animateFloat(
+        initialValue = 0f,
+        targetValue = 360f,
+        animationSpec = infiniteRepeatable(
+            animation = tween(10000, easing = LinearEasing),
+            repeatMode = RepeatMode.Restart
+        )
+    )
+    Column(
+        modifier = Modifier.fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.Center
     ) {
 
-        Text(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp),
-            text = "SplashScreen",
-            fontSize = 24.sp,
-            textAlign = TextAlign.Center,
-            color = Color.Red,
-            fontWeight = FontWeight.Medium
+        Image(
+            painter = painterResource(ImageRes.IC_L4E_SPLASH_SVG),
+            modifier = Modifier.rotate(angle),
+            contentDescription = null
         )
-
-        Button(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 32.dp),
-            onClick = { navigateToAuth.invoke() }
-        ) {
-            Text(text = "Go to Login")
-        }
     }
 }
