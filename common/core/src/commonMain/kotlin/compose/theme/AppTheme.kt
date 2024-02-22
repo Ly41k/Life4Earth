@@ -6,7 +6,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 
 @Composable
 fun AppTheme(
-    darkTheme: Boolean = true,
+    darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
 

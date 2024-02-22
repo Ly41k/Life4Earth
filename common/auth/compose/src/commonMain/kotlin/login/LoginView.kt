@@ -47,6 +47,7 @@ fun LoginView(
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
+            .background(Life4EarthTheme.colors.primaryBackground)
             .padding(32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
