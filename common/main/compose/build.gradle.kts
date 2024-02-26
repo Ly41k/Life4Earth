@@ -25,9 +25,10 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
-            implementation(compose.foundation)
-            implementation(compose.material)
+            api(compose.foundation)
+            implementation(compose.material3)
             implementation(compose.ui)
+            api(compose.animation)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
@@ -36,6 +37,8 @@ kotlin {
             implementation(libs.odyssey.core)
             implementation(libs.odyssey.compose)
             implementation(projects.common.messages.compose)
+
+            api(libs.precompose)
         }
     }
 }

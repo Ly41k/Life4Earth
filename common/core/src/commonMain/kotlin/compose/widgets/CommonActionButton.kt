@@ -14,13 +14,14 @@ import compose.theme.Life4EarthTheme
 
 @Composable
 fun CommonActionButton(
+    modifier: Modifier = Modifier,
     text: String,
     enabled: Boolean,
     onClick: () -> Unit
 ) {
 
     Button(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxWidth()
             .heightIn(min = 48.dp),
         colors = ButtonDefaults.buttonColors(containerColor = Life4EarthTheme.colors.primaryAction),
