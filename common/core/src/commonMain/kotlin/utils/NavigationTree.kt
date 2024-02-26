@@ -3,11 +3,7 @@ package utils
 object NavigationTree {
 
     enum class Splash {
-        SplashScreen
-    }
-
-    enum class Onboarding {
-        Onboarding
+        SplashFlow, Splash
     }
 
     enum class Auth {
@@ -15,6 +11,6 @@ object NavigationTree {
     }
 
     enum class Main {
-        Dashboard, Discover, Community, Messages, Favorite, More
+        Dashboard, Discover, Community, Chat, Bookmark, More
     }
 }
