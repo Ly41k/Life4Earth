@@ -34,13 +34,6 @@ kotlin {
 
             implementation(projects.common.core)
             implementation(projects.common.messages.presentation)
-
-            implementation(libs.kviewmodel.core)
-            implementation(libs.kviewmodel.compose)
-            implementation(libs.kviewmodel.odyssey)
-
-            implementation(libs.odyssey.core)
-            implementation(libs.odyssey.compose)
         }
     }
 }

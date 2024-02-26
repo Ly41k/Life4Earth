@@ -45,10 +45,7 @@ kotlin {
             implementation(libs.ktor.negotiation)
             implementation(libs.ktor.kotlinx.json)
             implementation(libs.ktor.logging)
-
             api(libs.precompose.viewmodel)
-
-            implementation(libs.kviewmodel.core)
         }
 
         androidMain.dependencies {

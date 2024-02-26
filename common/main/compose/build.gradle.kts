@@ -34,8 +34,6 @@ kotlin {
 
             implementation(projects.common.core)
 
-            implementation(libs.odyssey.core)
-            implementation(libs.odyssey.compose)
             implementation(projects.common.messages.compose)
 
             api(libs.precompose)
