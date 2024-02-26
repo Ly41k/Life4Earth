@@ -6,7 +6,7 @@ plugin-compose = "1.5.11" # https://github.com/JetBrains/compose-jb
 # Multiplatform
 kotlin = "1.9.21"
 serialization = "1.6.2"
-kodein = "7.20.1"
+#kodein = "7.20.1"
 ktor = "2.3.7"
 kotlinx-coroutinesCore = "1.7.3"
 libres = "1.2.2"
@@ -37,9 +37,6 @@ androidx-core = { group = "androidx.core", name = "core", version.ref = "core" }
 # Serialization
 kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization" }
 
-# DI
-kodein = { module = "org.kodein.di:kodein-di", version.ref = "kodein" }
-
 # Network client
 ktor-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-json = { module = "io.ktor:ktor-client-json", version.ref = "ktor" }
@@ -56,12 +53,14 @@ coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", ve
 
 libres-compose = { module = "io.github.skeptick.libres:libres-compose", version.ref = "libres" }
 
+# DI
 koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-compose" }
 
 kotlinx-components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "kotlinx-components-resources" }
 
+# Navigation
 precompose = { module = "moe.tlaster:precompose", version.ref = "precompose" }
 precompose-viewmodel = { module = "moe.tlaster:precompose-viewmodel", version.ref = "precompose" }
 precompose-koin = { module = "moe.tlaster:precompose-koin", version.ref = "precompose" }
