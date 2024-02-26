@@ -1,6 +1,12 @@
 package navigation
 
 import naviagation.BaseNavigation
+import utils.ImageRes.IC_BOOKMARK_TAB_SVG
+import utils.ImageRes.IC_CHAT_TAB_SVG
+import utils.ImageRes.IC_COMMUNITY_TAB_SVG
+import utils.ImageRes.IC_DISCOVER_TAB_SVG
+import utils.ImageRes.IC_MORE_TAB_SVG
+import utils.NavigationTree
 
 sealed class MainNavigation(
     override val route: String,
@@ -9,32 +15,32 @@ sealed class MainNavigation(
 ) : BaseNavigation(route) {
 
     data object Discover : MainNavigation(
-        route = "Discover",
-        title = "Discover",
-        selectedIcon = "ic_discover_tab.xml",
+        route = NavigationTree.Main.Discover.name,
+        title = "Discover", // TODO Need to use shared recourses
+        selectedIcon = IC_DISCOVER_TAB_SVG,
     )
 
     data object Community : MainNavigation(
-        route = "Community",
-        title = "Community",
-        selectedIcon = "ic_community_tab.xml",
+        route = NavigationTree.Main.Community.name,
+        title = "Community", // TODO Need to use shared recourses
+        selectedIcon = IC_COMMUNITY_TAB_SVG,
     )
 
     data object Chat : MainNavigation(
-        route = "Chat",
-        title = "Chat",
-        selectedIcon = "ic_chat_tab.xml",
+        route = NavigationTree.Main.Chat.name,
+        title = "Chat", // TODO Need to use shared recourses
+        selectedIcon = IC_CHAT_TAB_SVG,
     )
 
     data object Bookmark : MainNavigation(
-        route = "Bookmark",
-        title = "Bookmark",
-        selectedIcon = "ic_bookmark_tab.xml",
+        route = NavigationTree.Main.Bookmark.name,
+        title = "Bookmark", // TODO Need to use shared recourses
+        selectedIcon = IC_BOOKMARK_TAB_SVG,
     )
 
     data object More : MainNavigation(
-        route = "More",
-        title = "More",
-        selectedIcon = "ic_more_tab.xml",
+        route = NavigationTree.Main.More.name,
+        title = "More", // TODO Need to use shared recourses
+        selectedIcon = IC_MORE_TAB_SVG,
     )
 }
