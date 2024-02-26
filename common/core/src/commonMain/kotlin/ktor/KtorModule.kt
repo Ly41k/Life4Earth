@@ -12,13 +12,11 @@ import io.ktor.client.plugins.logging.SIMPLE
 import io.ktor.client.request.header
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
-import org.kodein.di.DI
-import org.kodein.di.bind
-import org.kodein.di.singleton
+import org.koin.dsl.module
 import utils.Constants.BASE_URL
 
-internal val ktorModule = DI.Module("ktorModule") {
-    bind<HttpClient>() with singleton {
+internal val ktorModule = module {
+    single<HttpClient> {
         HttpClient(HttpEngineFactory().createEngine()) {
             install(Logging) {
                 logger = Logger.SIMPLE

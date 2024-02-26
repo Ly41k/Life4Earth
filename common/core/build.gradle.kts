@@ -35,7 +35,6 @@ kotlin {
             implementation(compose.components.resources)
 
             api(libs.coroutines.core)
-            api(libs.kodein)
             api(libs.koin.core)
             api(libs.libres.compose)
 

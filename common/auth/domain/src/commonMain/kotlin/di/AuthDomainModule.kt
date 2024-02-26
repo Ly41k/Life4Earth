@@ -1,7 +1,7 @@
 package di
 
-import org.kodein.di.DI
+import org.koin.dsl.module
 
-val authDomainModule = DI.Module("authDomainModule") {
+val authDomainModule = module {
 
 }
