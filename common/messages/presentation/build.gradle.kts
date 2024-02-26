@@ -23,7 +23,6 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.common.core)
             implementation(projects.common.auth.domain)
-            implementation(libs.kviewmodel.core)
         }
     }
 }
