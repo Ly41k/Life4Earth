@@ -10,4 +10,9 @@ object ImageRes {
     const val IC_CHAT_TAB_SVG: String = "ic_chat_tab.xml"
     const val IC_BOOKMARK_TAB_SVG: String = "ic_bookmark_tab.xml"
     const val IC_MORE_TAB_SVG: String = "ic_more_tab.xml"
+
+    const val IC_PROBLEM_SVG: String = "ic_problem.xml"
+    const val IC_COMMUNITY_SVG: String = "ic_community.xml"
+    const val IC_ENABLER_SVG: String = "ic_enabler.xml"
+    const val IC_SOLUTION_SVG: String = "ic_solution.xml"
 }

@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.jetbrainsCompose)
+    alias(libs.plugins.libres)
 }
 
 kotlin {
@@ -25,25 +26,30 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
-            api(compose.foundation)
-            implementation(compose.material3)
+            implementation(compose.foundation)
+            implementation(compose.animation)
+            implementation(compose.material)
             implementation(compose.ui)
-            api(compose.animation)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
             implementation(projects.common.core)
-
-            implementation(projects.common.messages.compose)
-            implementation(projects.common.discover.compose)
+            implementation(projects.common.discover.presentation)
 
             api(libs.precompose)
+            implementation(libs.koin.compose)
         }
     }
 }
 
+libres {
+    generatedClassName = "DiscoverComposeRes"
+    generateNamedArguments = true
+    baseLocaleLanguageCode = "en"
+}
+
 android {
-    namespace = "com.life4earth.app.main.compose"
+    namespace = "com.life4earth.app.discover.compose"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {
