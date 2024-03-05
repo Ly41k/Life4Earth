@@ -10,6 +10,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import compose.theme.Life4EarthTheme
+import compose.widgets.TopAppBarView
 import messages.models.MessagesEvent
 import messages.models.MessagesViewState
 
