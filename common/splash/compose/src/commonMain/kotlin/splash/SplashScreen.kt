@@ -26,7 +26,7 @@ import utils.ImageRes
 @Composable
 fun SplashScreen(navigateToAuth: () -> Unit) {
     LaunchedEffect(Unit) {
-        delay(2000L)
+        delay(1000L)
         navigateToAuth.invoke()
     }
 

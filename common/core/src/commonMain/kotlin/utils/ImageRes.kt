@@ -15,4 +15,6 @@ object ImageRes {
     const val IC_COMMUNITY_SVG: String = "ic_community.xml"
     const val IC_ENABLER_SVG: String = "ic_enabler.xml"
     const val IC_SOLUTION_SVG: String = "ic_solution.xml"
+
+    const val DISCOVER_EARTH_JPG: String = "discover_earth.jpg"
 }

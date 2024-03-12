@@ -12,12 +12,14 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|mnc|colorMode|density|fontScale|fontWeightAdjustment|keyboard|layoutDirection|locale|mcc|navigation|smallestScreenSize|touchscreen|uiMode"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
 
         <activity-alias
             android:name=".DarkModeMainActivityAlias"
             android:enabled="true"
             android:exported="true"
+            android:screenOrientation="portrait"
             android:targetActivity=".MainActivity">
 
             <intent-filter>
@@ -32,6 +34,7 @@
             android:exported="true"
             android:icon="@mipmap/ic_launcher_light"
             android:roundIcon="@mipmap/ic_launcher_light_round"
+            android:screenOrientation="portrait"
             android:targetActivity=".MainActivity">
 
             <intent-filter>
